@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lirycs - Sua Plataforma Musical</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <a href="#" class="sidebar-logo">
+                <img src="fts/log.png" alt="Lirycs" class="logo-img">
+                <span>Lirycs</span>
+            </a>
+            
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active" data-section="home">
+                    <i class="fas fa-home"></i>
+                    <span>Início</span>
+                </a>
+                <a href="#" class="nav-item" data-section="search">
+                    <i class="fas fa-search"></i>
+                    <span>Buscar</span>
+                </a>
+                <a href="#" class="nav-item" data-section="library">
+                    <i class="fas fa-book"></i>
+                    <span>Sua Biblioteca</span>
+                </a>
+                <a href="#" class="nav-item" data-section="create-music">
+                    <i class="fas fa-plus-circle"></i>
+                    <span>Criar Música</span>
+                </a>
+            </nav>
+            
+            <div class="sidebar-divider"></div>
+            
+            <div class="sidebar-playlists">
+                <div class="playlist-header">
+                    <h3>Playlists</h3>
+                    <button class="create-playlist-btn">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+                
+                <div class="playlist-item">
+                    <div class="playlist-cover">
+                <i class="fab fa-instagram"></i>
+                    </div>
+                    <div class="playlist-info">
+                        <h4>Instagram</h4>
+                        <p>LiroEu</p>
+                    </div>
+                </div>
+                    
+                <div class="playlist-item">
+                    <div class="playlist-cover">
+                      <i class="fab fa-spotify"></i>
+                    </div>
+                    <div class="playlist-info">
+                        <h4>Spotify</h4>
+                        <p>Eu Liro</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Header Principal -->
+        <header class="main-header">
+            <div class="header-nav">
+                <button class="mobile-menu-btn" onclick="toggleSidebar()">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <button class="nav-btn" onclick="goBack()" disabled>
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="nav-btn" onclick="goForward()" disabled>
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            
+            <div class="search-container">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" class="search-input" placeholder="O que você quer ouvir?" id="searchInput">
+            </div>
+            
+            <div class="header-actions">
+                <div class="user-menu" onclick="toggleUserMenu()">
+                <img src="fts/log.png" alt="Lirycs" class="logo-img">
+                </div>
+            </div>
+        </header>
+
+        <!-- Conteúdo Principal -->
+        <main class="main-content" id="mainContent">
+            <!-- Seção Home -->
+            <div class="content-view" id="home-view">
+                <!-- Hero Section -->
+                <section class="hero-section">
+                    <div class="hero-content">
+                        <h1 class="hero-title">Transformo Suas Ideias em Música</h1>
+                        <p class="hero-subtitle">
+Sou um profissional da música que transforma suas ideias em realidade sonora. Crio letras originais do zero, moldadas no seu estilo único, e produzo beats sob medida para te ajudar a lançar suas faixas e alcançar seu público. Com uma abordagem personalizada e uma paixão pela música, estou aqui para te ajudar a alcançar o sucesso musical que você sempre sonhou. Vamos criar juntos uma música que reflita sua essência e conecte com o mundo de forma única.
+
+                        </p>
+                        <a href="https://open.spotify.com/intl-pt/artist/0ggTwxwXyZs0Kf1aP0rB4I?si=PfQ2SaaIQc2zYa-Ce5PkPg" class="hero-cta" target="_blank">
+                            <i class="fas fa-play"></i>
+                            Spotify
+                        </a>
+                    </div>
+                </section>
+
+                <!-- Seção Criar Música -->
+                <section class="create-music-section">
+                    <h2 class="create-music-title">Crie Sua Música Personalizada</h2>
+                    <p class="create-music-subtitle">
+                        Transforme seus momentos especiais em uma música única. Criamos composições originais para aniversários, pedidos de casamento e declarações de amor.
+                    </p>
+                    <a href="https://wa.me/5511999999999?text=Olá! Gostaria de criar uma música personalizada através do Lirycs." class="create-music-btn" target="_blank">
+                        <i class="fas fa-magic"></i>
+                        Quero Minha Música
+                    </a>
+                </section>
+
+                <!-- Tocadas Recentemente -->
+                <section class="content-section">
+                    <div class="section-header">
+                        <h2 class="section-title">Tocadas recentemente</h2>
+                        <a href="#" class="show-all-btn">Mostrar tudo</a>
+                    </div>
+                    <div class="cards-grid">
+                        <div class="music-card" onclick="playMusic('song1')">
+                            <div class="card-cover">
+                                <i class="fas fa-music"></i>
+                                <div class="play-overlay">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                            </div>
+                            <div class="card-info">
+                                <h3>Amor Eterno</h3>
+                                <p>Música romântica personalizada</p>
+                            </div>
+                        </div>
+                        
+                        <div class="music-card" onclick="playMusic('song2')">
+                            <div class="card-cover">
+                                <i class="fas fa-heart"></i>
+                                <div class="play-overlay">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                            </div>
+                            <div class="card-info">
+                                <h3>Nosso Momento</h3>
+                                <p>Composição especial de aniversário</p>
+                            </div>
+                        </div>
+                        
+                        <div class="music-card" onclick="playMusic('song3')">
+                            <div class="card-cover">
+                                <i class="fas fa-guitar"></i>
+                                <div class="play-overlay">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                            </div>
+                            <div class="card-info">
+                                <h3>Serenata Acústica</h3>
+                                <p>Violão e voz para pedido especial</p>
+                            </div>
+                        </div>
+                        
+                        <div class="music-card" onclick="playMusic('song4')">
+                            <div class="card-cover">
+                                <i class="fas fa-ring"></i>
+                                <div class="play-overlay">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                            </div>
+                            <div class="card-info">
+                                <h3>Pedido de Casamento</h3>
+                                <p>Música única para o grande momento</p>
+                            </div>
+                        </div>
+                        
+                        <div class="music-card" onclick="playMusic('song5')">
+                            <div class="card-cover">
+                                <i class="fas fa-birthday-cake"></i>
+                                <div class="play-overlay">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                            </div>
+                            <div class="card-info">
+                                <h3>Parabéns Especial</h3>
+                                <p>Versão personalizada de aniversário</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Feito para você -->
+                <section class="content-section">
+                    <div class="section-header">
+                        <h2 class="section-title">Feito para você</h2>
+                        <a href="#" class="show-all-btn">Mostrar tudo</a>
+                    </div>
+                    <div class="cards-grid">
+                        <a href="https://www.instagram.com/liroeu" target="_blank" class="music-card" style="text-decoration: none; color: inherit;">
+                            <div class="card-cover">
+                                <i class="fab fa-instagram"></i>
+                                <div class="play-overlay">
+                                    <i class="fab fa-instagram"></i>
+                                </div>
+                            </div>
+                            <div class="card-info">
+                                <h3>Instagram</h3>
+                                <p>Siga @liroeu no Instagram</p>
+                            </div>
+                        </a>
+                        
+                        <a href="https://www.tiktok.com/@liroeu" target="_blank" class="music-card" style="text-decoration: none; color: inherit;">
+                            <div class="card-cover">
+                                <i class="fab fa-tiktok"></i>
+                                <div class="play-overlay">
+                                    <i class="fab fa-tiktok"></i>
+                                </div>
+                            </div>
+                            <div class="card-info">
+                                <h3>TikTok</h3>
+                                <p>Vídeos musicais no TikTok</p>
+                            </div>
+                        </a>
+                        
+                        <a href="https://www.youtube.com/@liroeu" target="_blank" class="music-card" style="text-decoration: none; color: inherit;">
+                            <div class="card-cover">
+                                <i class="fab fa-youtube"></i>
+                                <div class="play-overlay">
+                                    <i class="fab fa-youtube"></i>
+                                </div>
+                            </div>
+                            <div class="card-info">
+                                <h3>YouTube</h3>
+                                <p>Canal oficial no YouTube</p>
+                            </div>
+                        </a>
+                        
+                        <a href="https://open.spotify.com/intl-pt/artist/0ggTwxwXyZs0Kf1aP0rB4I?si=PfQ2SaaIQc2zYa-Ce5PkPg" target="_blank" class="music-card" style="text-decoration: none; color: inherit;">
+                            <div class="card-cover">
+                                <i class="fab fa-spotify"></i>
+                                <div class="play-overlay">
+                                    <i class="fab fa-spotify"></i>
+                                </div>
+                            </div>
+                            <div class="card-info">
+                                <h3>Spotify</h3>
+                                <p>Ouça no Spotify</p>
+                            </div>
+                        </a>
+                    </div>
+                </section>
+
+                <!-- Footer -->
+                <footer class="main-footer">
+                    <div class="footer-content">
+                        <p>&copy; 2025 Lirycs. Murilo Erik e CRM PRODUCTIONS, Todos os direitos reservados.</p>
+                    </div>
+                </footer>
+            </div>
+
+            <!-- Seção Buscar -->
+            <div class="content-view" id="search-view" style="display: none;">
+                <h2 class="section-title">Buscar</h2>
+                <div id="searchResults" class="cards-grid">
+                    <!-- Resultados da busca aparecerão aqui -->
+                </div>
+                
+                <!-- Footer -->
+                <footer class="main-footer">
+                    <div class="footer-content">
+                        <p>&copy; 2024 Lirycs. Todos os direitos reservados.</p>
+                    </div>
+                </footer>
+            </div>
+
+            <!-- Seção Biblioteca -->
+            <div class="content-view" id="library-view" style="display: none;">
+                <h2 class="section-title">Sua Biblioteca</h2>
+                <div class="cards-grid">
+                    <div class="music-card">
+                        <div class="card-cover">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div class="card-info">
+                            <h3>Músicas Curtidas</h3>
+                            <p>15 músicas curtidas</p>
+                        </div>
+                    </div>
+                    
+                    <div class="music-card">
+                        <div class="card-cover">
+                            <i class="fas fa-download"></i>
+                        </div>
+                        <div class="card-info">
+                            <h3>Downloads</h3>
+                            <p>8 músicas baixadas</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Footer -->
+                <footer class="main-footer">
+                    <div class="footer-content">
+                        <p>&copy; 2024 Lirycs. Todos os direitos reservados.</p>
+                    </div>
+                </footer>
+            </div>
+
+            <!-- Seção Criar Música -->
+            <div class="content-view" id="create-music-view" style="display: none;">
+                <h2 class="section-title">Criar Música Personalizada</h2>
+                <div class="create-music-section">
+                    <h3 class="create-music-title">Transforme Sua História em Música</h3>
+                    <p class="create-music-subtitle">
+                        Nossa equipe de compositores criará uma música única baseada na sua história de amor, 
+                        momentos especiais e preferências                        momentos especiais e preferências musicais.
+                    </p>
+                    
+                    <div class="cards-grid" style="margin-top: 32px;">
+                        <div class="music-card">
+                            <div class="card-cover">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <div class="card-info">
+                                <h3>Pedido de Namoro</h3>
+                                <p>Música especial para conquistar</p>
+                            </div>
+                        </div>
+                        
+                        <div class="music-card">
+                            <div class="card-cover">
+                                <i class="fas fa-ring"></i>
+                            </div>
+                            <div class="card-info">
+                                <h3>Pedido de Casamento</h3>
+                                <p>O momento mais importante</p>
+                            </div>
+                        </div>
+                        
+                        <div class="music-card">
+                            <div class="card-cover">
+                                <i class="fas fa-birthday-cake"></i>
+                            </div>
+                            <div class="card-info">
+                                <h3>Aniversário</h3>
+                                <p>Celebre com uma música única</p>
+                            </div>
+                        </div>
+                        
+                        <div class="music-card">
+                            <div class="card-cover">
+                                <i class="fas fa-gift"></i>
+                            </div>
+                            <div class="card-info">
+                                <h3>Presente Especial</h3>
+                                <p>Surpreenda quem você ama</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="https://wa.me/5511999999999?text=Olá! Gostaria de criar uma música personalizada através do Lirycs." class="create-music-btn" target="_blank" style="margin-top: 32px; display: inline-block;">
+                        <i class="fas fa-magic"></i>
+                        Começar Agora
+                    </a>
+                </div>
+                
+                <!-- Footer -->
+                <footer class="main-footer">
+                    <div class="footer-content">
+                        <p>&copy; 2024 Lirycs. Todos os direitos reservados.</p>
+                    </div>
+                </footer>
+            </div>
+        </main>
+
+        <!-- Player de Música -->
+        <div class="music-player">
+            <div class="player-left">
+                <div class="now-playing-cover">
+                    <img src="fts/espinhos.jpg" alt="ESPINHOS - EuLiro" class="now-playing-img">
+                </div>
+                <div class="now-playing-info">
+                    <h4 id="currentSong">Ouça ESPINHOS!</h4>
+                    <p id="currentArtist">EuLiro</p>
+                </div>
+                <div class="player-actions">
+                    <button class="like-btn" onclick="toggleLike()">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="player-center">
+                <div class="player-controls">
+                    <button class="control-btn" onclick="shuffleMusic()">
+                        <i class="fas fa-random"></i>
+                    </button>
+                    <button class="control-btn" onclick="previousTrack()">
+                        <i class="fas fa-step-backward"></i>
+                    </button>
+                    <button class="control-btn play-btn" onclick="togglePlay()" id="playBtn">
+                        <i class="fas fa-play"></i>
+                    </button>
+                    <button class="control-btn" onclick="nextTrack()">
+                        <i class="fas fa-step-forward"></i>
+                    </button>
+                    <button class="control-btn" onclick="repeatMusic()">
+                        <i class="fas fa-redo"></i>
+                    </button>
+                </div>
+                
+                <div class="progress-container">
+                    <span class="time-display" id="currentTime">0:00</span>
+                    <div class="progress-bar" onclick="seekMusic(event)">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <span class="time-display" id="totalTime">0:00</span>
+                </div>
+            </div>
+            
+            <div class="player-right">
+                <div class="volume-container">
+                    <button class="volume-btn" onclick="toggleMute()">
+                        <i class="fas fa-volume-up" id="volumeIcon"></i>
+                    </button>
+                    <div class="volume-bar" onclick="setVolume(event)">
+                        <div class="volume-fill" id="volumeFill"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/5511999999999?text=Olá! Gostaria de criar uma música personalizada através do Lirycs." class="whatsapp-btn" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
